@@ -39,6 +39,27 @@ const AddJobPage = ({ addJobSubmit }) => {
         return navigate('/jobs');
     };
 
+    const jobTypes = [
+        'Full-Time',
+        'Part-Time',
+        'Remote',
+        'Internship'
+    ]
+
+    const salaries = [
+        'Under $50K',
+        '$50K - $60K',
+        '$60K - $70K',
+        '$70K - 80K',
+        '$80K - 90K',
+        '$90K - 100K',
+        '$100K - 125K',
+        '$125K - 150K',
+        '$150K - 175K',
+        '$175K - 200K',
+        'Over $200K'
+    ]
+
     return (
         <section className='bg-indigo-50'>
             <div className='container m-auto max-w-2xl py-24'>
@@ -58,10 +79,11 @@ const AddJobPage = ({ addJobSubmit }) => {
                                 value={type}
                                 onChange={(e) => setType(e.target.value)}
                             >
-                                <option value='Full-Time'>Full-Time</option>
-                                <option value='Part-Time'>Part-Time</option>
-                                <option value='Remote'>Remote</option>
-                                <option value='Internship'>Internship</option>
+                                {
+                                    jobTypes.map(jobType => (
+                                        <option key={jobType} value={jobType}>{jobType}</option>        
+                                    ))
+                                }
                             </select>
                         </div>
 
@@ -107,17 +129,11 @@ const AddJobPage = ({ addJobSubmit }) => {
                                 value={salary}
                                 onChange={(e) => setSalary(e.target.value)}
                             >
-                                <option value='Under $50K'>Under $50K</option>
-                                <option value='$50K - 60K'>$50K - $60K</option>
-                                <option value='$60K - 70K'>$60K - $70K</option>
-                                <option value='$70K - 80K'>$70K - $80K</option>
-                                <option value='$80K - 90K'>$80K - $90K</option>
-                                <option value='$90K - 100K'>$90K - $100K</option>
-                                <option value='$100K - 125K'>$100K - $125K</option>
-                                <option value='$125K - 150K'>$125K - $150K</option>
-                                <option value='$150K - 175K'>$150K - $175K</option>
-                                <option value='$175K - 200K'>$175K - $200K</option>
-                                <option value='Over $200K'>Over $200K</option>
+                                {
+                                    salaries.map(salary => (
+                                        <option key={salary} value={salary}>{salary}</option>
+                                    ))
+                                }
                             </select>
                         </div>
 
@@ -198,7 +214,6 @@ const AddJobPage = ({ addJobSubmit }) => {
                                 onChange={(e) => setContactPhone(e.target.value)}
                             />
                         </div>
-
                         <div>
                             <button
                                 className='bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline'
