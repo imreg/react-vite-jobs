@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const DetailsForm = ({ jobSubmit, job = null, serviceTitle, id = null }) => {
+const DetailsForm = ({ jobSubmit, serviceTitle, job = null, id = null }) => {
     const [title, setTitle] = useState(job?.title ?? '');
     const [type, setType] = useState(job?.type ?? 'Full-Time');
     const [location, setLocation] = useState(job?.location ?? '');
