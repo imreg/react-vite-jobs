@@ -9,13 +9,13 @@ import NotFoundPage from './pages/NotFoundPage'
 
 const App = () => {
     // Add New Job
-  const addJob = async (newJob) => {
+  const addJob = async (job) => {
     const res = await fetch('/api/jobs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newJob),
+      body: JSON.stringify(job),
     });
     return;
   };
